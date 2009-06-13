@@ -1,0 +1,64 @@
+#content #ad_banners.index {
+  border: none;
+  border-collapse: collapse;
+}
+
+#content #ad_banners.index .node .name {
+  font-size: 115%;
+  font-weight: bold;
+}
+
+#content #ad_banners.index .node .name a,
+#content #ad_banners.index .node .name a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+#content #ad_banners.index .node .name a:hover,
+#content #ad_banners.index .node .name a:visited:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+#content #ad_banner_form_area {
+  width: 40em;
+}
+
+#content #ad_banner_form_area .title {
+  margin-bottom: 1em;
+}
+
+#content .form-area .error-with-field .error {
+  margin-top: -1em;
+}
+
+#content #ad_banner_form_area #ad_banner_name.textbox,
+#content #ad_banner_form_area #ad_banner_link_url.textbox {
+  font-size: 125%;
+  width: 100%;
+}
+
+#content #ad_banner_form_area #image-thumbnail {
+  background-color: #eaeaea;
+  border: 1px solid #ccc;
+  display: block;
+  padding: 3px;
+}
+#content #ad_banner_form_area #image-thumbnail .note {
+  display: block;
+  margin: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+#content #ad_banner_form_area #image-thumbnail.hover {
+  background-color: #ccc;
+  border: 1px solid #f00;
+}
+#content #ad_banner_form_area #image-thumbnail.hover .note {
+  color: #666;
+}
+
+#content #ad_banner_form_area .note {
+  font-weight: normal;
+  font-size: 90%;
+}

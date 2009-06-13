@@ -1,0 +1,21 @@
+- include_stylesheet 'admin/ad_banners'
+
+%h1 Remove Ad Banner
+
+%p Are you sure you want to <strong class="warning">permanently remove</strong> the following ad banner?
+
+%table#ad_banners.index
+  %tbody
+    %tr.node.level-1
+      %td.name
+        = h @ad_banner.name
+      %td.image
+        = image_tag(@ad_banner.asset.thumbnail(:thumbnail))
+      %td.link_url
+        = @ad_banner.link_url
+
+- form_for [:admin, @ad_banner], :html => { :method => :delete } do
+  %p.buttons
+    %input.button{ :type => 'submit', :value => 'Delete Ad Banner' }/
+    or
+    = link_to('Cancel', admin_ad_banners_url)

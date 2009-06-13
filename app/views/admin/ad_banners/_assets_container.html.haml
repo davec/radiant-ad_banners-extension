@@ -1,0 +1,26 @@
+- @stylesheets << 'admin/assets'
+- include_javascript 'lowpro'
+- include_javascript 'admin/assets'
+- include_javascript 'admin/ad_banners'
+- include_javascript 'dragdrop'
+
+#assets-container
+  #asset-tabs
+    - render_region :asset_tabs do |asset_tabs|
+      -# asset_tabs.upload_tab do
+        %a.asset-tab{ :href => "#upload-assets", :id => "tab_upload-assets" } Upload
+      - asset_tabs.bucket_tab do
+        %a.asset-tab{ :href => "#bucket", :id => "tab_bucket" } Bucket
+
+  #assets 
+    #bucket.pane
+      - render_region :bucket_pane do |bucket_pane|
+        - bucket_pane.bucket_notes do      
+          %p
+            %span.note The Bucket provides temporary storage for your items.
+            %span#clear-bucket
+              = link_to_remote('Clear Bucket', {:url => clear_bucket_url} )
+        - bucket_pane.bucket do 
+          = render :partial => "bucket"
+        - bucket_pane.bucket_bottom do 
+          .clear

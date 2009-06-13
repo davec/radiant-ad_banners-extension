@@ -1,0 +1,42 @@
+- include_stylesheet 'admin/ad_banners'
+
+%h1 Ad Banners
+
+%p
+  Click on an ad banner name below to edit it, or click <code>Remove</code> to delete it.
+
+%table#ad_banners.index
+  %thead
+    %tr
+      %th.name
+        Name
+      %th.image
+        Image Preview
+      %th.weight
+        Weight
+      %th.url
+        URL
+      %th.modify
+        Modify
+  %tbody
+    - if @ad_banners.empty?
+      %tr
+        %td.note{ :colspan => '5' }
+          No Ad Banners
+    - else
+      - @ad_banners.each do |ad_banner|
+        %tr.node.level-1
+          %td.name
+            = image('ad_banners/ad')
+            = link_to(h(ad_banner.name), edit_admin_ad_banner_url(ad_banner))
+          %td.image
+            = image_tag(ad_banner.asset.thumbnail(:icon))
+          %td.weight
+            = ad_banner.weight
+          %td.url
+            = link_to ad_banner.link_url
+          %td.remove
+            = link_to(image('remove', :alt => 'Remove Ad Banner'), remove_admin_ad_banner_url(ad_banner))
+
+%p
+  = link_to(image('ad_banners/new-ad', :alt => 'New Ad Banner'), new_admin_ad_banner_url)

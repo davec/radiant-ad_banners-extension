@@ -1,0 +1,33 @@
+- thumb_width, thumb_height = Asset.thumbnail_sizes[:thumbnail].first.split(/\D/)
+- form_for [:admin, @ad_banner] do |f|
+  .form-area
+    #ad_banner_form_area
+      #ad_banner-data
+        %p.title
+          %label{:for => 'ad_banner_name'} Name
+          = f.text_field :name, :class => 'textbox', :maxlength => 255
+        %p.title
+          %label{:for => 'ad_banner_asset_id'} Image
+          %span#image-thumbnail{ :style => "width:#{thumb_width}px;height:#{thumb_height}px;" }
+            - if @ad_banner.asset.nil?
+              %span.note Drag an image from the assets bucket to here
+            - else
+              = image_tag(@ad_banner.asset.thumbnail(:thumbnail))
+          = f.hidden_field :asset_id
+        %p.title
+          %label{:for => 'ad_banner_link_url'} Link URL
+          = f.text_field :link_url, :class => 'textbox', :maxlength => 255
+        %p.title
+          %label{:for => 'ad_banner_weight'}
+            Weight
+            %span.note (The greater the weight, the more likely the ad banner is to appear.)
+          = f.select :weight, (1..10).to_a
+        %p.title
+          %label{:for => 'ad_banner_link_target'} Target Window
+          = f.select :link_target, [ [ 'Default', '' ], [ 'New Window', '_blank' ], [ 'Same Window', '_top' ] ]
+  = javascript_tag "$('ad_banner_name').activate()"
+  %p.buttons
+    = save_model_button(@ad_banner)
+    = save_model_and_continue_editing_button(@ad_banner)
+    or
+    = link_to('Cancel', admin_ad_banners_url)
