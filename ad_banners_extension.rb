@@ -17,6 +17,7 @@ class AdBannersExtension < Radiant::Extension
     admin.ad_banner = Radiant::AdminUI.load_default_ad_banner_regions
 
     admin.tabs.add "Ads", "/admin/ad_banners", :after => "Layouts", :visibility => [:all]
+    Page.send :include, AdBannerTags
   end
   
   def deactivate
