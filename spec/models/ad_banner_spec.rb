@@ -24,13 +24,13 @@ describe AdBanner do
     it 'should require a name' do
       @ad_banner.name = nil
       @ad_banner.should_not be_valid
-      @ad_banner.errors.on(:name).should == I18n.t('activerecord.errors.messages.blank')
+      @ad_banner.errors.on(:name).should == ActiveRecord::Errors.default_error_messages[:blank]
     end
 
     it 'should require an asset' do
       @ad_banner.asset = nil
       @ad_banner.should_not be_valid
-      @ad_banner.errors.on(:asset_id).should == I18n.t('activerecord.errors.messages.blank')
+      @ad_banner.errors.on(:asset_id).should == ActiveRecord::Errors.default_error_messages[:blank]
     end
 
     it 'should not require a URL' do

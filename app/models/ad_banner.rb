@@ -1,5 +1,5 @@
 class AdBanner < ActiveRecord::Base
-  default_scope :order => 'name ASC'
+  order_by :name
 
   belongs_to :asset
 
