@@ -1,3 +1,60 @@
 = Ad Banners
 
-Description goes here
+An ad banner extension for Radiant, inspired by the banner_rotator extension
+but targeted at a different use case.
+
+Note: This version of the ad_banners extension works with Radiant 0.7.1 and
+does not work with Radiant 0.8. If you are using Radiant 0.8 or later, please
+pull from the master branch. Also note that no testing has been done on Radiant
+versions prior to 0.7.1.
+
+== Installation
+
+This extension relies on the paperclipped extension, so install it first if you
+are not already using it:
+
+  git submodule add git://github.com/kbindman/paperclipped.git vendor/extensions/paperclipped
+
+Install the ad_banners extension:
+
+  git submodule add git://github.com/davec/radiant-ad_banners-extension.git vendor/extensions/ad_banners
+
+Note: Substitute `it clone` for `git submodule add` if you do not want to
+install the extensions as submodules.
+
+Run the migration and copy the public assets:
+
+  rake radiant:extensions:ad_banners:migrate
+  rake radiant:extensions:ad_banners:update
+
+Ad banners can be created and managed from the Ads tab in the admin UI. One or
+more ad banners can be displayed on a page using the supplied Radius tag.
+
+To associate an image with an ad banner, you need to have previously added it
+to your (paperclipped) assets bucket.
+
+== Example
+
+To display a random ad banner, use
+
+  <r:ad_banner />
+
+Multiple <r:ad_banner/> tags can be placed on a page and each one will generate
+the HTML code to display a unique ad banner. If there are more <r:ad_banner/>
+tags on a page than there are defined ad banners, the excess <r:ad_banner/>
+tags will be ignored (actually, they'll generate an empty string).
+
+A name attribute can also be specified to show a specific ad banner
+
+  <r:ad_banner name="Ad Banner Name" />
+
+When an ad banner is specified by name it is removed from the list of eligible
+banners to display with a bare <r:ad_banner/> tag. If, for some reason, you want
+to display the same banner multiple times on a page you must use the name
+attribute to do so.
+
+== Dependencies
+
+This extension depends on the paperclipped extension and incorporates modified
+copies of some of paperclipped's view templates.
+
