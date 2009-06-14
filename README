@@ -11,7 +11,7 @@ If you are using Radiant 0.7.1, please pull from the radiant-0.7.1 branch.
 This extension relies on the paperclipped extension, so install it first if you
 are not already using it:
 
-  git submodule add git://github.com/kbindman/paperclipped.git vendor/extensions/paperclipped
+  git submodule add git://github.com/kbingman/paperclipped.git vendor/extensions/paperclipped
 
 Install the ad_banners extension:
 
