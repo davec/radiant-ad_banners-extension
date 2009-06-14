@@ -4,7 +4,7 @@
 class AdBannersExtension < Radiant::Extension
   version "0.1"
   description "Manage ad banners"
-  url "http://yourwebsite.com/ad_banners"
+  url "http://github.com/davec/radiant-ad_banners-extension"
   
   define_routes do |map|
     map.namespace :admin, :member => { :remove => :get } do |admin|
