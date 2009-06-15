@@ -1,8 +1,14 @@
 module AdBannerTags
   include Radiant::Taggable
 
-  require 'rexml/document'
+  desc %{
+    Selects a banner. A specific banner may be specified with the @name@ attribute, otherwise a random banner is selected.
 
+    A banner will only appear once on a given page unless otherwise forced with the @name@ attribute.
+
+    *Usage:*
+    <pre><code><r:ad_banner [name="banner_name"]/></code></pre>
+  }
   tag 'ad_banner' do |tag|
     @selected_banners ||= []
     ad_banner = tag.attr['name'] ? AdBanner.find_by_name(tag.attr['name']) : AdBanner.select_banner(:exclude => @selected_banners)
