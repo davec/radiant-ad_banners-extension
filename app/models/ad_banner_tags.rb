@@ -11,7 +11,11 @@ module AdBannerTags
   }
   tag 'ad_banner' do |tag|
     @selected_banners ||= []
-    ad_banner = tag.attr['name'] ? AdBanner.find_by_name(tag.attr['name']) : AdBanner.select_banner(:exclude => @selected_banners)
+    ad_banner = if tag.attr['name']
+                  AdBanner.find_by_name(tag.attr['name'], :joins => "INNER JOIN assets ON assets.id = ad_banners.asset_id")
+                else
+                  AdBanner.select_banner(:exclude => @selected_banners)
+                end
     unless ad_banner.nil?
       @selected_banners << ad_banner.id
       # The HTML is simple enough to roll by hand instead of sucking in REXML

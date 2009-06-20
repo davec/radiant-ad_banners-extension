@@ -10,7 +10,7 @@ class AdBanner < ActiveRecord::Base
 
   def self.select_banner(options = {})
     exclusions = options[:exclude] || []
-    weightings = find_by_sql("SELECT id,weight FROM #{AdBanner.table_name}").map do |banner|
+    weightings = find_by_sql("SELECT ad_banners.id,weight FROM ad_banners INNER JOIN assets ON assets.id = ad_banners.asset_id").map do |banner|
       [banner.id] * (exclusions.include?(banner.id) ? 0 : banner.weight)
     end.flatten
     find_by_id(weightings[rand(weightings.size)])

@@ -30,7 +30,7 @@
             = image('ad_banners/ad')
             = link_to(h(ad_banner.name), edit_admin_ad_banner_url(ad_banner))
           %td.image
-            = image_tag(ad_banner.asset.thumbnail(:icon))
+            = ad_banner.asset ? image_tag(ad_banner.asset.thumbnail(:icon)) : '<span class="warning">MISSING</span>'
           %td.weight
             = ad_banner.weight
           %td.url
