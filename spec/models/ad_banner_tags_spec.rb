@@ -132,4 +132,26 @@ describe 'AdBanners' do
 
   end
 
+  describe '<r:ad_banner> when an associated asset has been deleted' do
+
+    before do
+      Asset.find_by_title('one').destroy
+    end
+
+    it 'should return nothing for the specific banner' do
+      tag = %{<r:ad_banner name="one"/>}
+      expected = ''
+
+      pages(:home).should render(tag).as(expected)
+    end
+
+    it 'should return two links for two different banners for multiple random banners' do
+      tag = %{<r:ad_banner/>} * 4
+      expected = %r{(?:<a href="http://www.(two|three).com"><img src="/assets/\d+/\1.jpg" title="\1" alt="\1" /></a>){2}}
+
+      pages(:home).should render(tag).matching(expected)
+    end
+
+  end
+
 end
