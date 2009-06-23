@@ -95,6 +95,21 @@ describe 'AdBanners' do
 
   end
 
+  describe '<r:ad_banner> for three banners with one banner having zero weight' do
+
+    before do
+      AdBanner.find_by_name('two').update_attributes!(:weight => 0)
+    end
+
+    it 'should return two links for two different banners, excluding the banner with zero weight' do
+      tag = %{<r:ad_banner/>} * 3
+      expected = %r{(?:<a href="http://www.(one|three).com"><img src="/assets/\d+/\1.jpg" title="\1" alt="\1" /></a>){2}}
+
+      pages(:home).should render(tag).matching(expected)
+    end
+
+  end
+
   describe '<r:ad_banner> for one specific and three random banners' do
 
     it 'should return a link for the specified banner and a link for the two remaining banners' do
