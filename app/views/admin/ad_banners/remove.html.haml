@@ -10,7 +10,7 @@
       %td.name
         = h @ad_banner.name
       %td.image
-        = image_tag(@ad_banner.asset.thumbnail(:thumbnail))
+        = @ad_banner.asset ? image_tag(@ad_banner.asset.thumbnail(:icon)) : '<span class="warning">MISSING</span>'
       %td.link_url
         = @ad_banner.link_url
 
