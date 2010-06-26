@@ -6,12 +6,6 @@ class AdBannersExtension < Radiant::Extension
   description "Manage ad banners"
   url "http://github.com/davec/radiant-ad_banners-extension"
   
-  define_routes do |map|
-    map.namespace :admin, :member => { :remove => :get } do |admin|
-      admin.resources :ad_banners
-    end
-  end
-  
   def activate
     Radiant::AdminUI.send :include, AdBannersAdminUI unless defined? admin.ad_banner
     admin.ad_banner = Radiant::AdminUI.load_default_ad_banner_regions
