@@ -3,7 +3,8 @@
 An ad banner extension for Radiant, inspired by the banner_rotator extension
 but targeted at a different use case.
 
-Note: This version of the ad_banners extension is compatible with Radiant 0.8.
+Note: This version of the ad_banners extension is compatible with Radiant 0.9.
+If you are using Radiant 0.8.x, please pull from the radiant-0.8.1 branch.
 If you are using Radiant 0.7.1, please pull from the radiant-0.7.1 branch.
 
 == Installation
