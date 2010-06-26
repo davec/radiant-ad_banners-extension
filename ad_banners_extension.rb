@@ -2,7 +2,7 @@
 # require_dependency 'application'
 
 class AdBannersExtension < Radiant::Extension
-  version "0.1"
+  version "0.2"
   description "Manage ad banners"
   url "http://github.com/davec/radiant-ad_banners-extension"
  
