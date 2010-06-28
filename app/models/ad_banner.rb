@@ -6,7 +6,7 @@ class AdBanner < ActiveRecord::Base
   validates_presence_of :name, :asset_id#, :link_url
   validates_format_of :link_url, :allow_blank => true,
                       :with => /\Ahttps?:\/\/.+\z/,
-                      :message => "doesn't look like a URL"
+                      :message => :invalid
 
   def self.select_banner(options = {})
     exclusions = options[:exclude] || []

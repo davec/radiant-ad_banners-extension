@@ -7,18 +7,21 @@
   #asset-tabs
     - render_region :asset_tabs do |asset_tabs|
       -# asset_tabs.upload_tab do
-        %a.asset-tab{ :href => "#upload-assets", :id => "tab_upload-assets" } Upload
+        %a.asset-tab{ :href => "#upload-assets", :id => "tab_upload-assets" }
+          = t('ad_banner_upload')
       - asset_tabs.bucket_tab do
-        %a.asset-tab{ :href => "#bucket", :id => "tab_bucket" } Bucket
+        %a.asset-tab{ :href => "#bucket", :id => "tab_bucket" }
+          = t('ad_banner_bucket')
 
   #assets 
     #bucket.pane
       - render_region :bucket_pane do |bucket_pane|
         - bucket_pane.bucket_notes do      
           %p
-            %span.note The Bucket provides temporary storage for your items.
+            %span.note
+              = t('ad_banner_bucket_note')
             %span#clear-bucket
-              = link_to_remote('Clear Bucket', {:url => clear_bucket_url} )
+              = link_to_remote(t('ad_banner_bucket_clear'), {:url => clear_bucket_url} )
         - bucket_pane.bucket do 
           = render :partial => "bucket"
         - bucket_pane.bucket_bottom do 

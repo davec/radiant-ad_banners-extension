@@ -41,7 +41,7 @@ describe AdBanner do
     it 'should require a valid URL' do
       @ad_banner.link_url = 'example.com'
       @ad_banner.should_not be_valid
-      @ad_banner.errors.on(:link_url).should == "doesn't look like a URL"
+      @ad_banner.errors.on(:link_url).should == "This is not a valid URL"
     end
 
   end

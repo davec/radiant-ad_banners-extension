@@ -1,8 +1,5 @@
-# Uncomment this if you reference any of your controllers in activate
-# require_dependency 'application'
-
 class AdBannersExtension < Radiant::Extension
-  version "0.2"
+  version "0.9"  # Compatible with Radiant 0.9
   description "Manage ad banners"
   url "http://github.com/davec/radiant-ad_banners-extension"
  

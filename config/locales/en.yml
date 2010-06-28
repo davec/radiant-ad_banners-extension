@@ -1,0 +1,46 @@
+---
+en:
+  activerecord:
+    errors:
+      models:
+        ad_banner:
+          attributes:
+            link_url:
+              invalid: 'This is not a valid URL'
+  ad_banner_upload: 'Upload'
+  ad_banner_bucket: 'Bucket'
+  ad_banner_bucket_note: 'The Bucket provides temporary storage for your items.'
+  ad_banner_bucket_clear: 'Clear Bucket'
+  ad_banner_attach_title: 'Attach to ad'
+  ad_banner_bucket_empty: 'Your bucket is empty'
+  ad_banner_missing: 'MISSING'
+  ad_banner_index_title: 'Ad Banners'
+  ad_banner_index_instructions: 'Click on an ad banner name below to edit it, or click <code>Remove</code> to delete it.'
+  ad_banner_form:
+    instructions:
+      change: 'To change the ad banner image, drag an image from the asset bucket over the existing image thumbnail, or click the <b>+</b> (plus) icon next to the image in the asset bucket.'
+      disable: 'You can temporarily disable the display of the ad banner by setting the weight to <b>0</b> (zero). This will allow you to reenable the ad banner later without having to recreate it.'
+    label:
+      name: 'Banner Name'
+      thumbnail: 'Image Thumbnail'
+      drag: 'Drag an image from the assets bucket to here'
+      url: 'Link URL'
+      weight: 'Weight'
+      weight_note: '(The greater the weight, the more likely the ad banner is to appear.)'
+      target: 'Target Window'
+    targets:
+      default: 'Browser Default'
+      new: 'New Window'
+      same: 'Same Window'
+  ad_banner_index_column:
+    name: 'Name'
+    image: 'Image Preview'
+    weight: 'Weight'
+    url: 'URL'
+  ad_banner_index_none: 'No Ad Banners'
+  ad_banner_action:
+    delete: 'Delete Ad Banner'
+    edit: 'Edit Ad Banner'
+    new: 'New Ad Banner'
+    remove: 'Remove Ad Banner'
+    remove_confirm: 'Are you sure you want to <strong class="warning">permanently remove</strong> the following ad banner?'

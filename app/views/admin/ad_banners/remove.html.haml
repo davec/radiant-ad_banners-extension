@@ -1,21 +1,22 @@
 - include_stylesheet 'admin/ad_banners'
 
-%h1 Remove Ad Banner
+%h1= t('ad_banner_action.remove')
 
-%p Are you sure you want to <strong class="warning">permanently remove</strong> the following ad banner?
+%p
+  = t('ad_banner_action.remove_confirm')
 
 %table#ad_banners.index
   %tbody
     %tr.node.level-1
       %td.name
-        = h @ad_banner.name
+        &= @ad_banner.name
       %td.image
-        = @ad_banner.asset ? image_tag(@ad_banner.asset.thumbnail(:icon)) : '<span class="warning">MISSING</span>'
+        = @ad_banner.asset ? image_tag(@ad_banner.asset.thumbnail(:icon)) : %Q{<span class="warning">#{t('ad_banner_missing')}</span>}
       %td.link_url
         = @ad_banner.link_url
 
 - form_for [:admin, @ad_banner], :html => { :method => :delete } do
   %p.buttons
-    %input.button{ :type => 'submit', :value => 'Delete Ad Banner' }/
-    or
-    = link_to('Cancel', admin_ad_banners_url)
+    %input.button{ :type => 'submit', :value => t('ad_banner_action.delete') }/
+    = t('or')
+    = link_to(t('cancel'), admin_ad_banners_url)

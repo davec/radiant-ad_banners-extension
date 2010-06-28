@@ -1,28 +1,28 @@
 - include_stylesheet 'admin/ad_banners'
 
-%h1 Ad Banners
+%h1= t('ad_banner_index_title')
 
 %p
-  Click on an ad banner name below to edit it, or click <code>Remove</code> to delete it.
+  != t('ad_banner_index_instructions')
 
 %table#ad_banners.index
   %thead
     %tr
       %th.name
-        Name
+        = t('ad_banner_index_column.name')
       %th.image
-        Image Preview
+        = t('ad_banner_index_column.image')
       %th.weight
-        Weight
+        = t('ad_banner_index_column.weight')
       %th.url
-        URL
+        = t('ad_banner_index_column.url')
       %th.modify
-        Modify
+        = t('modify')
   %tbody
     - if @ad_banners.empty?
       %tr
         %td.note{ :colspan => '5' }
-          No Ad Banners
+          = t('ad_banner_index_none')
     - else
       - @ad_banners.each do |ad_banner|
         %tr.node.level-1
@@ -30,13 +30,13 @@
             = image('ad_banners/ad')
             = link_to(h(ad_banner.name), edit_admin_ad_banner_url(ad_banner))
           %td.image
-            = ad_banner.asset ? image_tag(ad_banner.asset.thumbnail(:icon)) : '<span class="warning">MISSING</span>'
+            = ad_banner.asset ? image_tag(ad_banner.asset.thumbnail(:icon)) : %Q{<span class="warning">#{t('ad_banner_missing')}</span>}
           %td.weight
             = ad_banner.weight
           %td.url
             = auto_link ad_banner.link_url
           %td.remove
-            = link_to(image('remove', :alt => 'Remove Ad Banner'), remove_admin_ad_banner_url(ad_banner))
+            = link_to(t('remove'), remove_admin_ad_banner_url(ad_banner))
 
 %p
-  = link_to(image('ad_banners/new-ad', :alt => 'New Ad Banner'), new_admin_ad_banner_url)
+  = link_to(image('ad_banners/new-ad', :alt => t('ad_banner_action.new')), new_admin_ad_banner_url)

@@ -4,4 +4,4 @@
     = link_to image_tag(asset_thumbnail), asset_url, :title => asset_title, :class => "bucket_link"
 
   .info{ :id => "#{asset_id}_info" }
-    = link_to_function image_tag('/images/assets/add.png'), "AdBanner.attach($('bucket_#{asset_id}'), $('image-thumbnail'))", { :class => 'add_asset', :title => 'Attach to ad' }
+    = link_to_function image_tag('/images/assets/add.png'), "AdBanner.attach($('bucket_#{asset_id}'), $('image-thumbnail'))", { :class => 'add_asset', :title => t('ad_banner_attach_title') }
