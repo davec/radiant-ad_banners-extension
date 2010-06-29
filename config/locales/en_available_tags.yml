@@ -1,0 +1,13 @@
+---
+en:
+  desc: 
+    ad_banner: "Selects a banner.
+      A specific banner may be specified with the @name@ attribute,
+      otherwise a random banner is selected.
+
+      A banner will only appear once on a given page unless otherwise
+      forced with the @name@ attribute.
+
+      *Usage*:
+      
+      <pre><code><r:ad_banner [name=\"banner_name\"]/></code></pre>"
